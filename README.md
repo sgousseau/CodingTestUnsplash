@@ -5,7 +5,7 @@ Affichage d'images proposées par l'API [Unsplash](https://unsplash.com)
 ## Explications
 
 * MVVM standard avec un business layer sous forme de gestionnaire de données (SearchManager, ImageManager). Un gestionnaire de donnée utilisera un utilitaire réseau approprié. Pour cela j'ai prévu le protocole NetworkService. SearchManager et ImageManager utilisent tous deux un objet de type NetworkService, en l'occurence URLSessionNetwork.
-* SearchViewController est configuré avec un UISearchController, et initialise son ViewModel en y injectant la searchBar et la tableView. Cela permet d'écrire l'ensemble des interactions sous forme de séquence à l'initialisation directement et de n'avoir aucun code métier dans le viewController.
+* SearchViewController est configuré avec un UISearchController, et initialise son ViewModel en y injectant la searchBar et la tableView. Cela permet d'écrire l'ensemble des interactions sous forme de séquence à l'initialisation directement et de n'avoir aucun code dans le viewController, même si à priori ce n'est pas une faute de coder les bindings dans le controller.
 * Le viewModel déclare les interactions suivantes:
   - Une entrée dans la barre de recherche déclenche le téléchargement du résultat, après l'arrêt de la saisie + quelques millisecondes.
   - Une fin de liste déclenche le téléchargement de la page suivante.
